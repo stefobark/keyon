@@ -1,20 +1,22 @@
 class being {
+  
+  //object properties. instance variables. these are the 
+  //variables that are available to the object when it is instantiated 
+  
   float radius;
   float mass;
   PVector position = new PVector(width/2,height/2);
-  PVector acceleration;
-  PVector velocity;
+  PVector acceleration = new PVector(0,0);
+  PVector velocity = new PVector(0,0);
   float health;
 
-  
   // First version of the Being constructor;
   // the fields are assigned default values
   being() {
-    radius = random(0,10);
+    radius = 10;
     mass = radius * 2;
     position.set(width/2,height/2);
     health = 1000;
-   
   }
   
   // Second version of the Being constructor;
@@ -24,25 +26,31 @@ class being {
     radius = r;
   }
   
+  //this is the main method. it starts a chain of other method calls. 
   void live(){
-    if(keyPressed){
-     keyPressed(); 
-    }
+    move();
+    display();
+    health -= 1;
   }
-  
+  //this is the function that controls key pressing for the being. it 
+  //changes the value of the acceleration vector.
   void keyPressed() {
     if (keyPressed && key == CODED) {
+      
       if (keyCode == UP) {
-        acceleration.y = 1;
-      }  
-      if (keyCode == DOWN) {
-        acceleration.y = -1;
-      } 
-      if (keyCode == LEFT) {
-        acceleration.x = -1;
+        acceleration.y = -.1;
+      }  else if (keyCode == DOWN) {
+        acceleration.y = .1;
+      } else {
+        acceleration.y = 0;
       }
-      if (keyCode == RIGHT) {
-        acceleration.x += 1;
+      
+      if (keyCode == LEFT) {
+        acceleration.x = -.1;
+      } else if (keyCode == RIGHT) {
+        acceleration.x = .1;
+      }  else {
+        acceleration.y = 0;
       }
     } 
   }
@@ -57,10 +65,10 @@ class being {
   }
   
   void move(){
-   if(keyPressed){  //<>//
+   if(keyPressed){ 
      keyPressed(); 
      velocity = acceleration.mult(mass).copy();
-     position = position.add(velocity.mult( .5));
+     position = position.add(velocity.mult(.1));
    }
   }
   
