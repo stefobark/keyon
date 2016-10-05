@@ -1,11 +1,10 @@
-fruit fruit = new fruit();
-being being = new being();
-ArrayList<fruit> fruits = new ArrayList<fruit>();
-String passKey;
+fruit fruit = new fruit();                              //custom fruit object
+being being = new being();                              //custom  object
+ArrayList<fruit> fruits = new ArrayList<fruit>();       //initializing ArrayList
+String passKey;                                         //declaring String variable
 
 void setup(){
   size(500,500);
-  frameRate(200);
 }
 
 void draw(){
