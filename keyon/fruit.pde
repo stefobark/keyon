@@ -14,10 +14,11 @@ class fruit {
   }
   
   void live(){
-    mass += .01;
-    display();
+    mass += .1;     // controls rate of growth
+    display();      //we have to see the fruit
   }
   
+  //respawn fruit
   void makeNew(){
       position.set(random(width),random(height));
   }
