@@ -38,19 +38,19 @@ class being {
     if (keyPressed && key == CODED) {
       
       if (keyCode == UP) {
-        acceleration.y = -.1;
+        acceleration.y = -1;
       }  else if (keyCode == DOWN) {
-        acceleration.y = .1;
+        acceleration.y = 1;
       } else {
         acceleration.y = 0;
       }
       
       if (keyCode == LEFT) {
-        acceleration.x = -.1;
+        acceleration.x = -1;
       } else if (keyCode == RIGHT) {
-        acceleration.x = .1;
+        acceleration.x = 1;
       }  else {
-        acceleration.y = 0;
+        acceleration.x = 0;
       }
     } 
   }
