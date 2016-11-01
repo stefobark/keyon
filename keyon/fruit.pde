@@ -20,11 +20,13 @@ class fruit {
   
   //respawn fruit
   void makeNew(){
+      radius = random(0,20);
+      mass = radius/2;
       position.set(random(width),random(height));
   }
   
   void display(){
-    fill(0);
+    fill(200);
     stroke(255);
     ellipse(position.x,position.y,mass,mass);
     fill(255);
