@@ -34,7 +34,7 @@ class being {
   
   void checkAlive(){
      if(health <= 0){
-      this.position = null;
+      this.position = null;  // the being no longer has a position.
       alive = false;
     }
   }
@@ -71,7 +71,8 @@ class being {
       if (keyCode == RIGHT) {
         acceleration.x += .15;
       }
-    } else acceleration.mult(.95); //this will slow down the being. we could think of this as friction. if we decrease the value that we multiply by, the being slows down faster.
+      
+    } else acceleration.mult(.1); //this will slow down the being. we could think of this as friction. if we decrease the value that we multiply by, the being slows down faster.
   }
   
   void checkEndWindow(){
@@ -105,6 +106,7 @@ class being {
       return false;
     }
   }
+  
   void display() {
     ellipse(position.x, position.y, radius, radius);
     ellipse(position.x+5, position.y, radius/2, radius/2);
